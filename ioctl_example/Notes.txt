@@ -1,0 +1,17 @@
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/ioctl_example$ ls -al /dev/dummy
+crw-r--r-- 1 root root 90, 0 Nov 12 01:37 /dev/dummy
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/ioctl_example$ sudo mknod /dev/dummy c 90 0
+
+
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/ioctl_example$ dmesg | tail -10
+[13727.273133] ioctl example copied 55 from user
+[13727.273141] ioctl example copied data to user
+[13727.273151] ioctl example copied 20 from user
+[13727.273155] ioctl example driver close called
+[13836.338303] ioctl example driver open called
+[13836.338465] ioctl example copied data to user
+[13836.338472] ioctl example copied 55 from user
+[13836.338475] ioctl example copied data to user
+[13836.338480] copied from user 20  Ajay's ioctl example
+[13836.338485] ioctl example driver close called
+
