@@ -1,0 +1,1 @@
+cmd_/home/linux-test/aks_linux_modules/mymodule.ko := ld -r -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/linux-test/aks_linux_modules/mymodule.ko /home/linux-test/aks_linux_modules/mymodule.o /home/linux-test/aks_linux_modules/mymodule.mod.o;  true
