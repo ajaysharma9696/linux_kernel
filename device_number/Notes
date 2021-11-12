@@ -1,0 +1,18 @@
+linux-test@linuxtest:~/aks_linux_modules$ sudo insmod device_number/device_number.ko
+linux-test@linuxtest:~/aks_linux_modules$ cat /proc/devices | grep device_number
+ 90 device_number
+linux-test@linuxtest:~/aks_linux_modules$
+
+linux-test@linuxtest:~/aks_linux_modules$ dmesg | tail -10
+[15363.706271] Could not register device number
+[15410.468642] Good bye from aks module
+[15461.540652] Hello from aks module
+[15461.540658] Could not register device number
+[17497.021454] Hello from device number module
+[17497.021461] device number could not be registered
+[17668.734405] Good bye from device number module
+[17691.294313] Hello from device number module
+[17691.294321] device number registered major 90, minor 0
+[18809.599263] Good bye from device number module
+
+
