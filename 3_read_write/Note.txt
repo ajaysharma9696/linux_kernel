@@ -1,0 +1,55 @@
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ sudo insmod read_write.ko
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ dmesg |  tail -10
+[  198.985817] device_number: loading out-of-tree module taints kernel.
+[  198.985920] device_number: module verification failed: signature and/or required key missing - tainting kernel
+[  198.986978] Hello from device number module
+[  198.986987] device number registered major 90, minor 0
+[  268.079263] device number driver open called
+[  268.080172] device number driver close called
+[ 5506.116208] Hello from read write number module
+[ 5506.116215] read write - device number Major 240 Minor 0 was registered
+[ 5506.116441] Registering of device to kernel failed
+[ 5576.532799] Hello from read write number module
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ ls /dev/dummydriver
+/dev/dummydriver
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ ls -al /dev/dummydriver
+crw------- 1 root root 239, 0 Nov 11 23:35 /dev/dummydriver
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ chmod 666 /dev/dummydriver
+chmod: changing permissions of '/dev/dummydriver': Operation not permitted
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ sudo chmod 666 /dev/dummydriver
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ echo "This is a test" > /dev/dummydriver
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ head -n 1 /dev/dummydriver
+This is a test
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ echo "Ajay is learning Kernel programming" > /dev/dummydriver
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ head -n 1 /dev/dummydriver
+Ajay is learning Kernel programming
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ sudo rmmod read_write.ko
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ sudo insmod read_write.ko
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ sudo chmod 666 /dev/dummydriver
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ echo "Hello Ajay, keep learning" > /dev/dummydriver
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ head -1 /dev/dummydriver
+Hello Ajay, keep learning
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$ dmesg | tail -20
+[ 5806.683563] device number driver open called
+[ 5806.683606] device number driver close called
+[ 5998.027547] Good bye from read write module
+[ 6007.217249] Hello from read write number module
+[ 6007.217256] read write - device number Major 238 Minor 0 was registered
+[ 6082.223490] device number driver open called
+[ 6082.223513] read write module write function invoked
+[ 6082.223518] device number driver close called
+[ 6093.430828] device number driver open called
+[ 6093.430840] read write module read function invoked
+[ 6093.430875] device number driver close called
+[ 6210.364512] Good bye from read write module
+[ 6219.458048] Hello from read write number module
+[ 6219.458054] read write - device number Major 237 Minor 0 was registered
+[ 6258.771778] read write driver open called
+[ 6258.771800] read write module write function invoked
+[ 6258.771806] read write driver close called
+[ 6265.465429] read write driver open called
+[ 6265.465440] read write module read function invoked
+[ 6265.465474] read write driver close called
+linux-test@linuxtest:~/aks_linux_modules/linux_kernel/3_read_write$
+

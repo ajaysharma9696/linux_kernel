@@ -1,0 +1,1 @@
+cmd_/home/linux-test/aks_linux_modules/linux_kernel/device_number/device_number.mod := { echo  /home/linux-test/aks_linux_modules/linux_kernel/device_number/device_number.o;  echo; } > /home/linux-test/aks_linux_modules/linux_kernel/device_number/device_number.mod

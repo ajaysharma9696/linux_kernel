@@ -1,0 +1,1 @@
+cmd_/home/linux-test/aks_linux_modules/linux_kernel/3_read_write/read_write.ko := ld -r -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/linux-test/aks_linux_modules/linux_kernel/3_read_write/read_write.ko /home/linux-test/aks_linux_modules/linux_kernel/3_read_write/read_write.o /home/linux-test/aks_linux_modules/linux_kernel/3_read_write/read_write.mod.o;  true

@@ -1,0 +1,1 @@
+cmd_/home/linux-test/aks_linux_modules/linux_kernel/3_read_write/Module.symvers := sed 's/ko$$/o/' /home/linux-test/aks_linux_modules/linux_kernel/3_read_write/modules.order | scripts/mod/modpost -m -a   -o /home/linux-test/aks_linux_modules/linux_kernel/3_read_write/Module.symvers -e -i Module.symvers   -T -
