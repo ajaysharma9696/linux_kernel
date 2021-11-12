@@ -67,6 +67,10 @@ Block devices:
 259 blkext
 linux-test@linuxtest:~/aks_linux_modules$
 
+linux-test@linuxtest:~/aks_linux_modules$ sudo mknod /dev/mydevice c 90 0
+linux-test@linuxtest:~/aks_linux_modules$ ls /dev/mydevice -al
+crw-r--r-- 1 root root 90, 0 Nov 11 18:52 /dev/mydevice
+
 
 linux-test@linuxtest:~/aks_linux_modules$ sudo insmod device_number/device_number.ko
 linux-test@linuxtest:~/aks_linux_modules$ cat /proc/devices | grep device_number
