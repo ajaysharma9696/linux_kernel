@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+DRIVER_CLASS	read_write.c	22;"	d	file:
+DRIVER_NAME	read_write.c	21;"	d	file:
+INCLUDE_VERMAGIC	read_write.mod.c	2;"	d	file:
+buf	test.c	/^static char buf[255];$/;"	v	file:
+buffer	read_write.c	/^static char buffer[255];$/;"	v	file:
+buffer_tail	read_write.c	/^static int buffer_tail;$/;"	v	file:
+driver_close	read_write.c	/^static int driver_close(struct inode *device_file, struct file *instance) {$/;"	f	file:
+driver_open	read_write.c	/^static int driver_open(struct inode *device_file, struct file *instance) {$/;"	f	file:
+driver_read	read_write.c	/^static ssize_t driver_read(struct file* fp, char* user_buf, size_t count, loff_t *offset) {$/;"	f	file:
+driver_write	read_write.c	/^static ssize_t driver_write(struct file* fp, const char* user_buf, size_t count, loff_t *offset) {$/;"	f	file:
+fops	read_write.c	/^static struct file_operations fops = {$/;"	v	typeref:struct:file_operations	file:
+main	test.c	/^int main(){$/;"	f
+my_class	read_write.c	/^static struct class *my_class;$/;"	v	typeref:struct:class	file:
+my_device	read_write.c	/^static struct cdev my_device;$/;"	v	typeref:struct:cdev	file:
+my_device_nr	read_write.c	/^static dev_t my_device_nr;$/;"	v	file:
+mymodule_exit	read_write.c	/^module_exit(mymodule_exit);$/;"	v
+mymodule_exit	read_write.c	/^void __exit mymodule_exit(void)$/;"	f
+mymodule_init	read_write.c	/^module_init(mymodule_init);$/;"	v
+mymodule_init	read_write.c	/^static int __init mymodule_init(void)$/;"	f	file:

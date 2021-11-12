@@ -80,7 +80,21 @@ static int __init mymodule_init(void)
 {
     int retval;
     printk("Hello from read write number module \n");
-    
+   
+    /**
+     * 
+     The first step is an allocation and registration of the range of char device numbers using alloc_chrdev_region.
+
+     int alloc_chrdev_region(dev_t *dev, unsigned int firstminor, unsigned int count, char *name);
+     Where dev is output parameter for first assigned number, baseminor is first of the requested range of minor numbers (e.g., 0), count is a number of minor numbers required, and name – the associated device’s name driver.
+
+     The major number will be chosen dynamically and returned (along with the first minor number) in dev.
+     The function returns zero or a negative error code.
+
+     To get generated Major number, we can use MAJOR() macros.
+
+     int dev_major = MAJOR(dev);
+    */ 
     /* Allocate a device number */
     if (alloc_chrdev_region(&my_device_nr, 0, 1, DRIVER_NAME) < 0){
         printk("Device could not be allocated \n");
@@ -89,17 +103,30 @@ static int __init mymodule_init(void)
 
     printk("read write - device number Major %d Minor %d was registered", my_device_nr >> 20, my_device_nr & 0xfffff);
 
+    /*
+       create sysfs class
+    */
     /* create device class */
     if ((my_class = class_create(THIS_MODULE, DRIVER_CLASS)) == NULL) {
 	printk("Device class could not be created \n");
 	goto ClassError;
     }
     
+    /*
+          create a device file node and register it with sysfs.
+          struct device * device_create(struct class *class, struct device *parent, dev_t devt, const char *fmt, ...);
+    */
     /* create a device file */
     if (device_create(my_class, NULL, my_device_nr, NULL, DRIVER_NAME) == NULL){
         printk("Cannot create device file \n");
 	goto FileError;
     }
+
+    /*
+       void cdev_init(struct cdev *cdev, const struct file_operations *fops);
+       struct cdev represents a character device and is allocated by this function.
+
+    */
 
     /* Initialize device file */
     cdev_init(&my_device, &fops);
