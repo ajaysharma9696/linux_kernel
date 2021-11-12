@@ -1,1 +1,1 @@
-cmd_/home/linux-test/aks_linux_modules/device_number/modules.order := {   echo /home/linux-test/aks_linux_modules/device_number/device_number.ko; :; } | awk '!x[$$0]++' - > /home/linux-test/aks_linux_modules/device_number/modules.order
+cmd_/home/linux-test/aks_linux_modules/linux_kernel/device_number/modules.order := {   echo /home/linux-test/aks_linux_modules/linux_kernel/device_number/device_number.ko; :; } | awk '!x[$$0]++' - > /home/linux-test/aks_linux_modules/linux_kernel/device_number/modules.order

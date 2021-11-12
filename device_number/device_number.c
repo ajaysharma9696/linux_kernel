@@ -43,7 +43,7 @@ static int __init mymodule_init(void)
     } else if (retval > 0) {
 	printk("device number already registered major %d, minor %d", retval>>20, retval&0xfffff); 
     } else {
-	printk("device number could not be registered \n");
+	printk("device number could not be registered %d \n", retval);
 	return -1;
     }
 
