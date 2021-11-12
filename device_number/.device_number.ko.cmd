@@ -1,0 +1,1 @@
+cmd_/home/linux-test/aks_linux_modules/device_number/device_number.ko := ld -r -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/linux-test/aks_linux_modules/device_number/device_number.ko /home/linux-test/aks_linux_modules/device_number/device_number.o /home/linux-test/aks_linux_modules/device_number/device_number.mod.o;  true

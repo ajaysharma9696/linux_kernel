@@ -1,0 +1,1 @@
+cmd_/home/linux-test/aks_linux_modules/device_number/Module.symvers := sed 's/ko$$/o/' /home/linux-test/aks_linux_modules/device_number/modules.order | scripts/mod/modpost -m -a   -o /home/linux-test/aks_linux_modules/device_number/Module.symvers -e -i Module.symvers   -T -
